@@ -17,6 +17,8 @@ public:
 
     void addEntity(Entity *entity);
 
+    std::list<Entity *> *getEntites();
+
     void act();
 
     int foodCount();

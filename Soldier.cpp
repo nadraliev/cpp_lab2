@@ -3,6 +3,7 @@
 //
 
 #include "Soldier.h"
+#include "Pest.h"
 
 Soldier::Soldier(int foodPerCycle, int pestKilledPerCycle) : Entity(foodPerCycle) {
     this->pestKilledPerCycle = pestKilledPerCycle;
@@ -15,5 +16,14 @@ void Soldier::act(Anthill *anthill) {
 
 void Soldier::killPests(Anthill *anthill) {
     int pestsKilled = 0;
+    auto it = anthill->getEntites()->begin();
+    while (it != anthill->getEntites()->end() && pestsKilled < pestKilledPerCycle) {
+        if (dynamic_cast<Pest *>(*it)) {
+            it = anthill->getEntites()->erase(it);
+            pestsKilled++;
+        } else {
+            ++it;
+        }
+    }
 }
 

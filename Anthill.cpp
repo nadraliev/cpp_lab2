@@ -12,6 +12,10 @@ void Anthill::addEntity(Entity *entity) {
     entities.push_back(entity);
 }
 
+std::list<Entity *> *Anthill::getEntites() {
+    return &entities;
+}
+
 int Anthill::foodCount() {
     return foodHeap;
 }
