@@ -13,7 +13,8 @@ public:
     explicit Entity(int foodPerCycle);
     void eat(int *foodHeap);
     bool canEat(int *foodHeap);
-    void act(int *foodHeap);
+
+    virtual void act(int *foodHeap);
 
 protected:
     int foodPerCycle = 0;

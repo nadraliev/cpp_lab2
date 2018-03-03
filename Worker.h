@@ -13,6 +13,8 @@ public:
     Worker(int foodPerCycle, int foodMinedPerCycle);
     void mineFood(int *foodHeap);
 
+    void act(int *foodHeap);
+
 private:
     int foodMinedPerCycle = 0;
 
