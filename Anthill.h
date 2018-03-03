@@ -5,7 +5,7 @@
 #ifndef CPP_LAB2_ANTHILL_H
 #define CPP_LAB2_ANTHILL_H
 
-#include <vector>
+#include <list>
 #include "Entity.h"
 
 class Entity;
@@ -16,8 +16,6 @@ public:
     Anthill(int foodHeap);
 
     void addEntity(Entity *entity);
-
-    void removeEntity(int position);
 
     void act();
 
@@ -31,7 +29,7 @@ public:
 
 private:
     int foodHeap;
-    std::vector<Entity *> entities;
+    std::list<Entity *> entities;
 
 };
 

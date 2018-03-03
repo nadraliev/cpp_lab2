@@ -12,10 +12,6 @@ void Anthill::addEntity(Entity *entity) {
     entities.push_back(entity);
 }
 
-void Anthill::removeEntity(int position) {
-    entities.erase(entities.begin() + position);
-}
-
 int Anthill::foodCount() {
     return foodHeap;
 }
@@ -33,12 +29,13 @@ void Anthill::getFood(int count) {
 }
 
 void Anthill::act() {
-    for (std::vector<Entity *>::size_type i = 0; i != entities.size(); i++) {
-        if (entities[i]->canEat(this)) {
-            entities[i]->act(this);
+    auto it = entities.begin();
+    while (it != entities.end()) {
+        if ((*it)->canEat(this)) {
+            (*it)->act(this);
+            ++it;
         } else {
-            removeEntity((int) i);
-            i--;
+            it = entities.erase(it);
         }
     }
 }
