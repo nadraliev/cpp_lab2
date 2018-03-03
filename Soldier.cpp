@@ -2,6 +2,7 @@
 // Created by andrew on 03.03.18.
 //
 
+#include <cstdio>
 #include "Soldier.h"
 #include "Pest.h"
 
@@ -16,14 +17,17 @@ void Soldier::act(Anthill *anthill) {
 
 void Soldier::killPests(Anthill *anthill) {
     int pestsKilled = 0;
-    auto it = anthill->getEntites()->begin();
-    while (it != anthill->getEntites()->end() && pestsKilled < pestKilledPerCycle) {
-        if (dynamic_cast<Pest *>(*it)) {
-            it = anthill->getEntites()->erase(it);
+    Node *current = anthill->getEntites()->getHead();
+    while (current != nullptr) {
+        if (dynamic_cast<Pest *>(current->data)) {
+            Node *temp = current;
+            current = current->next;
+            anthill->getEntites()->remove(temp->data);
             pestsKilled++;
         } else {
-            ++it;
+            current = current->next;
         }
     }
+    printf("Soldier killed %d pest(s)\n", pestsKilled);
 }
 

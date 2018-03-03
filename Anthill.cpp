@@ -6,14 +6,15 @@
 
 Anthill::Anthill(double foodHeap) : foodHeap(foodHeap) {
     this->foodHeap = foodHeap;
+    entities = new List();
 }
 
 void Anthill::addEntity(Entity *entity) {
-    entities.push_back(entity);
+    entities->add(entity);
 }
 
-std::list<Entity *> *Anthill::getEntites() {
-    return &entities;
+List *Anthill::getEntites() {
+    return entities;
 }
 
 double Anthill::foodCount() {
@@ -21,7 +22,7 @@ double Anthill::foodCount() {
 }
 
 int Anthill::entitiesCount() {
-    return (int) entities.size();
+    return entities->getSize();
 }
 
 void Anthill::addFood(double count) {
@@ -33,13 +34,15 @@ void Anthill::getFood(double count) {
 }
 
 void Anthill::act() {
-    auto it = entities.begin();
-    while (it != entities.end()) {
-        if ((*it)->canEat(this)) {
-            (*it)->act(this);
-            ++it;
+    Node *current = entities->getHead();
+    while (current != nullptr) {
+        if (current->data->canEat(this)) {
+            current->data->act(this);
+            current = current->next;
         } else {
-            it = entities.erase(it);
+            Node *temp = current;
+            current = current->next;
+            entities->remove(temp->data);
         }
     }
 }

@@ -6,16 +6,22 @@
 #define CPP_LAB2_LARVA_H
 
 
+#include <functional>
 #include "Entity.h"
+#include "Female.h"
+
+class Female;
 
 class Larva: public Entity {
 
 public:
-    Larva(double foodPerCycle, double foodRequiredToGrow, void *onLarvaCanGrow);
+    Larva(double foodPerCycle, double foodRequiredToGrow, std::function<void(Larva *)> onLarvaCanGrow);
+
+    void act(Anthill *anthill) override;
 
 private:
     double foodRequiredToGrow = 0;
-    void *onLarvaCanGrow = nullptr;
+    std::function<void(Larva *)> onLarvaCanGrow = nullptr;
 
 };
 

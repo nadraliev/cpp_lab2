@@ -2,9 +2,20 @@
 // Created by andrew on 2/28/18.
 //
 
+#include <cstdio>
 #include "Larva.h"
 
-Larva::Larva(double foodPerCycle, double foodRequiredToGrow, void *onLarvaCanGrow) : Entity(foodPerCycle) {
+Larva::Larva(double foodPerCycle, double foodRequiredToGrow, std::function<void(Larva *)> onLarvaCanGrow) : Entity(
+        foodPerCycle) {
     this->foodRequiredToGrow = foodRequiredToGrow;
     this->onLarvaCanGrow = onLarvaCanGrow;
+}
+
+void Larva::act(Anthill *anthill) {
+    Entity::act(anthill);
+    foodRequiredToGrow -= foodPerCycle;
+    if (foodRequiredToGrow <= 0) {
+        printf("Larva is ready to grow\n");
+        onLarvaCanGrow(this);
+    }
 }

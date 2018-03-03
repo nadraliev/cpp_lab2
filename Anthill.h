@@ -5,10 +5,13 @@
 #ifndef CPP_LAB2_ANTHILL_H
 #define CPP_LAB2_ANTHILL_H
 
-#include <list>
+#include <vector>
 #include "Entity.h"
+#include "List.h"
 
 class Entity;
+
+class List;
 
 class Anthill {
 
@@ -17,7 +20,7 @@ public:
 
     void addEntity(Entity *entity);
 
-    std::list<Entity *> *getEntites();
+    List *getEntites();
 
     void act();
 
@@ -31,7 +34,7 @@ public:
 
 private:
     double foodHeap;
-    std::list<Entity *> entities;
+    List *entities;
 
 };
 
