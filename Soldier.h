@@ -12,7 +12,7 @@
 class Soldier : public Entity {
 
 public:
-    Soldier(int foodPerCycle, int pestKilledPerCycle);
+    Soldier(double foodPerCycle, int pestKilledPerCycle);
 
     void act(Anthill *anthill) override;
 

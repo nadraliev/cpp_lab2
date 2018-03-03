@@ -4,7 +4,7 @@
 
 #include "Entity.h"
 
-Entity::Entity(int foodPerCycle) {
+Entity::Entity(double foodPerCycle) {
     this->foodPerCycle = foodPerCycle;
 }
 

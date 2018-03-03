@@ -11,10 +11,10 @@
 class Larva: public Entity {
 
 public:
-    Larva(int foodPerCycle, int foodRequiredToGrow, void* onLarvaCanGrow);
+    Larva(double foodPerCycle, double foodRequiredToGrow, void *onLarvaCanGrow);
 
 private:
-    int foodRequiredToGrow = 0;
+    double foodRequiredToGrow = 0;
     void *onLarvaCanGrow = nullptr;
 
 };

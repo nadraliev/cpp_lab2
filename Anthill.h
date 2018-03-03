@@ -13,7 +13,7 @@ class Entity;
 class Anthill {
 
 public:
-    Anthill(int foodHeap);
+    Anthill(double foodHeap);
 
     void addEntity(Entity *entity);
 
@@ -21,16 +21,16 @@ public:
 
     void act();
 
-    int foodCount();
+    double foodCount();
 
     int entitiesCount();
 
-    void addFood(int count);
+    void addFood(double count);
 
-    void getFood(int count);
+    void getFood(double count);
 
 private:
-    int foodHeap;
+    double foodHeap;
     std::list<Entity *> entities;
 
 };

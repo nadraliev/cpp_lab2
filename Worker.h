@@ -10,14 +10,14 @@
 class Worker: public Entity {
 
 public:
-    Worker(int foodPerCycle, int foodMinedPerCycle);
+    Worker(double foodPerCycle, double foodMinedPerCycle);
 
     void mineFood(Anthill *anthill);
 
     void act(Anthill *anthill) override;
 
 private:
-    int foodMinedPerCycle = 0;
+    double foodMinedPerCycle = 0;
 
 };
 

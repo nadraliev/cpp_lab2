@@ -4,7 +4,7 @@
 
 #include "Worker.h"
 
-Worker::Worker(int foodPerCycle, int foodMinedPerCycle): Entity(foodPerCycle) {
+Worker::Worker(double foodPerCycle, double foodMinedPerCycle) : Entity(foodPerCycle) {
     this->foodMinedPerCycle = foodMinedPerCycle;
 }
 

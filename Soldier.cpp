@@ -5,7 +5,7 @@
 #include "Soldier.h"
 #include "Pest.h"
 
-Soldier::Soldier(int foodPerCycle, int pestKilledPerCycle) : Entity(foodPerCycle) {
+Soldier::Soldier(double foodPerCycle, int pestKilledPerCycle) : Entity(foodPerCycle) {
     this->pestKilledPerCycle = pestKilledPerCycle;
 }
 

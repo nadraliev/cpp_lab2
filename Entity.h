@@ -14,7 +14,8 @@ class Entity {
 
 public:
     Entity() = default;
-    explicit Entity(int foodPerCycle);
+
+    explicit Entity(double foodPerCycle);
 
     void eat(Anthill *anthill);
 
@@ -23,7 +24,7 @@ public:
     virtual void act(Anthill *anthill);
 
 protected:
-    int foodPerCycle = 0;
+    double foodPerCycle = 0;
 };
 
 

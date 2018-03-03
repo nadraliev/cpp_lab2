@@ -4,7 +4,7 @@
 
 #include "Anthill.h"
 
-Anthill::Anthill(int foodHeap) : foodHeap(foodHeap) {
+Anthill::Anthill(double foodHeap) : foodHeap(foodHeap) {
     this->foodHeap = foodHeap;
 }
 
@@ -16,7 +16,7 @@ std::list<Entity *> *Anthill::getEntites() {
     return &entities;
 }
 
-int Anthill::foodCount() {
+double Anthill::foodCount() {
     return foodHeap;
 }
 
@@ -24,11 +24,11 @@ int Anthill::entitiesCount() {
     return (int) entities.size();
 }
 
-void Anthill::addFood(int count) {
+void Anthill::addFood(double count) {
     foodHeap += count;
 }
 
-void Anthill::getFood(int count) {
+void Anthill::getFood(double count) {
     foodHeap -= count;
 }
 

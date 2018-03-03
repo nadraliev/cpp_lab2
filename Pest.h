@@ -10,7 +10,7 @@
 
 class Pest : public Entity {
 public:
-    explicit Pest(int foodPerCycle);
+    explicit Pest(double foodPerCycle);
 };
 
 

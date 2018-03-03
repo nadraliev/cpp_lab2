@@ -4,4 +4,4 @@
 
 #include "Pest.h"
 
-Pest::Pest(int foodPerCycle) : Entity(foodPerCycle) {}
+Pest::Pest(double foodPerCycle) : Entity(foodPerCycle) {}

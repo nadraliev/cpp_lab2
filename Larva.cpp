@@ -4,7 +4,7 @@
 
 #include "Larva.h"
 
-Larva::Larva(int foodPerCycle, int foodRequiredToGrow, void* onLarvaCanGrow): Entity(foodPerCycle) {
+Larva::Larva(double foodPerCycle, double foodRequiredToGrow, void *onLarvaCanGrow) : Entity(foodPerCycle) {
     this->foodRequiredToGrow = foodRequiredToGrow;
     this->onLarvaCanGrow = onLarvaCanGrow;
 }
