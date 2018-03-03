@@ -8,10 +8,11 @@ Worker::Worker(int foodPerCycle, int foodMinedPerCycle): Entity(foodPerCycle) {
     this->foodMinedPerCycle = foodMinedPerCycle;
 }
 
-void Worker::act(int *foodHeap) {
-    mineFood(foodHeap);
+void Worker::act(Anthill *anthill) {
+    Entity::act(anthill);
+    mineFood(anthill);
 }
 
-void Worker::mineFood(int *foodHeap) {
-    *foodHeap += foodMinedPerCycle;
+void Worker::mineFood(Anthill *anthill) {
+    anthill->addFood(foodMinedPerCycle);
 }

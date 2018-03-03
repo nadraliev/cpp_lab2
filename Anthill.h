@@ -8,6 +8,8 @@
 #include <vector>
 #include "Entity.h"
 
+class Entity;
+
 class Anthill {
 
 public:
@@ -21,7 +23,11 @@ public:
 
     int foodCount();
 
-    int entitesCount();
+    int entitiesCount();
+
+    void addFood(int count);
+
+    void getFood(int count);
 
 private:
     int foodHeap;

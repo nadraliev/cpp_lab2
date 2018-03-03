@@ -8,14 +8,14 @@ Entity::Entity(int foodPerCycle) {
     this->foodPerCycle = foodPerCycle;
 }
 
-void Entity::eat(int *foodHeap) {
-    *foodHeap -= foodPerCycle;
+void Entity::eat(Anthill *anthill) {
+    anthill->getFood(foodPerCycle);
 }
 
-bool Entity::canEat(int *foodHeap) {
-    return *foodHeap >= foodPerCycle;
+bool Entity::canEat(Anthill *anthill) {
+    return anthill->foodCount() >= foodPerCycle;
 }
 
-void Entity::act(int *foodHeap) {
-    eat(foodHeap);
+void Entity::act(Anthill *anthill) {
+    eat(anthill);
 }

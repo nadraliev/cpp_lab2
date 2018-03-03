@@ -20,15 +20,22 @@ int Anthill::foodCount() {
     return foodHeap;
 }
 
-int Anthill::entitesCount() {
+int Anthill::entitiesCount() {
     return (int) entities.size();
+}
+
+void Anthill::addFood(int count) {
+    foodHeap += count;
+}
+
+void Anthill::getFood(int count) {
+    foodHeap -= count;
 }
 
 void Anthill::act() {
     for (std::vector<Entity *>::size_type i = 0; i != entities.size(); i++) {
-        if (entities[i]->canEat(&foodHeap)) {
-            entities[i]->eat(&foodHeap);
-            entities[i]->act(&foodHeap);
+        if (entities[i]->canEat(this)) {
+            entities[i]->act(this);
         } else {
             removeEntity((int) i);
             i--;
