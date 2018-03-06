@@ -8,8 +8,6 @@
 
 #include "Entity.h"
 
-class Entity;
-
 struct Node {
     Entity *data;
     Node *next;

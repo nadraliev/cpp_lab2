@@ -8,10 +8,9 @@
 #include <vector>
 #include "Entity.h"
 #include "List.h"
+#include "Pest.h"
 
 class Entity;
-
-class List;
 
 class Anthill {
 
@@ -21,7 +20,7 @@ public:
 
     void addEntity(Entity *entity);
 
-    List *getEntites();
+    List *getEntities();
 
     void act();
 
@@ -33,10 +32,13 @@ public:
 
     void getFood(double count);
 
+    void attack(Pest *pest);
+
+    int pestsCanBeKilledCount;
+
 private:
     double foodHeap;
     List *entities;
-
 };
 
 

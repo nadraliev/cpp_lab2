@@ -9,8 +9,6 @@
 #include "Entity.h"
 #include "Larva.h"
 
-class Larva;
-
 class Female : public Entity {
 
 public:

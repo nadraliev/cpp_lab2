@@ -10,7 +10,6 @@
 #include "Entity.h"
 #include "Female.h"
 
-class Female;
 
 class Larva: public Entity {
 

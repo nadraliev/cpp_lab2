@@ -21,7 +21,7 @@ void Anthill::addEntity(Entity *entity) {
     entities->add(entity);
 }
 
-List *Anthill::getEntites() {
+List *Anthill::getEntities() {
     return entities;
 }
 
@@ -52,6 +52,15 @@ void Anthill::act() {
             current = current->next;
             entities->remove(temp->data);
         }
+    }
+}
+
+void Anthill::attack(Pest *pest) {
+    if (pestsCanBeKilledCount != 0) {
+        pestsCanBeKilledCount--;
+    } else {
+        if (pest->canEat(this))
+            pest->eat(this);
     }
 }
 

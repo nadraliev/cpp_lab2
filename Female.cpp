@@ -24,7 +24,7 @@ void Female::act(Anthill *anthill) {
 }
 
 void Female::onLarvaReadyToGrow(Larva *larva) {
-    Node *current = anthill->getEntites()->getHead();
+    Node *current = anthill->getEntities()->getHead();
     while (current != nullptr) {
         if (current->data == larva) {
             current->data = giveBirthToNewEntity();
@@ -39,7 +39,7 @@ Entity *Female::giveBirthToNewEntity() {
     int policeantsCount = 0;
     int soldiersCount = 0;
     int workersCount = 0;
-    Node *current = anthill->getEntites()->getHead();
+    Node *current = anthill->getEntities()->getHead();
     while (current != nullptr) {
         if (dynamic_cast<Policeant *>(current->data))
             policeantsCount++;

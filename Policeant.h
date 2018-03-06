@@ -8,7 +8,6 @@
 
 #include "Anthill.h"
 
-class Anthill;
 
 class Policeant : public Entity {
 
