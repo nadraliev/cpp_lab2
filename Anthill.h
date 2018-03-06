@@ -17,6 +17,7 @@ class Anthill {
 
 public:
     Anthill(double foodHeap);
+    ~Anthill();
 
     void addEntity(Entity *entity);
 

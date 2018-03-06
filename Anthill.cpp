@@ -9,6 +9,14 @@ Anthill::Anthill(double foodHeap) : foodHeap(foodHeap) {
     entities = new List();
 }
 
+Anthill::~Anthill() {
+    Node *current = entities->getHead();
+    while (current != nullptr) {
+        delete current->data;
+        current = current->next;
+    }
+}
+
 void Anthill::addEntity(Entity *entity) {
     entities->add(entity);
 }
