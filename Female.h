@@ -24,6 +24,8 @@ private:
     double larvasBornPerCycle = 0;
     Anthill *anthill;
 
+    Entity *giveBirthToNewEntity();
+
 };
 
 

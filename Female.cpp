@@ -5,6 +5,8 @@
 #include <cstdio>
 #include "Female.h"
 #include "Worker.h"
+#include "Policeant.h"
+#include "Soldier.h"
 
 Female::Female(double foodPerCycle, int larvasBornPerCycle, Anthill *anthill) : Entity(foodPerCycle) {
     this->larvasBornPerCycle = larvasBornPerCycle;
@@ -25,9 +27,38 @@ void Female::onLarvaReadyToGrow(Larva *larva) {
     Node *current = anthill->getEntites()->getHead();
     while (current != nullptr) {
         if (current->data == larva) {
-            current->data = new Worker(1, 2);
+            current->data = giveBirthToNewEntity();
         }
         current = current->next;
     }
-    printf("Larva evolved into worker\n");
+}
+
+
+Entity *Female::giveBirthToNewEntity() {
+    Entity *entity = nullptr;
+    int policeantsCount = 0;
+    int soldiersCount = 0;
+    int workersCount = 0;
+    Node *current = anthill->getEntites()->getHead();
+    while (current != nullptr) {
+        if (dynamic_cast<Policeant *>(current->data))
+            policeantsCount++;
+        if (dynamic_cast<Soldier *>(current->data))
+            soldiersCount++;
+        if (dynamic_cast<Worker *>(current->data))
+            workersCount++;
+        current = current->next;
+    }
+    int min = std::min(std::min(policeantsCount, soldiersCount), workersCount);
+    if (min == policeantsCount) {
+        entity = new Policeant(1, 0.3);
+        printf("Larva evolved into policeant\n");
+    } else if (min == soldiersCount) {
+        entity = new Soldier(1, 1);
+        printf("Larva evolved into soldier\n");
+    } else {
+        entity = new Worker(1, 2);
+        printf("Larva evolved into worker\n");
+    }
+    return entity;
 }
