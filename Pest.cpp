@@ -5,3 +5,7 @@
 #include "Pest.h"
 
 Pest::Pest(double foodPerCycle) : Entity(foodPerCycle) {}
+
+void Pest::act(Anthill *anthill) {
+    anthill->attack(this);
+}

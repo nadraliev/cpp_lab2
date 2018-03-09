@@ -42,6 +42,7 @@ void Anthill::getFood(double count) {
 }
 
 void Anthill::act() {
+    pestsCanBeKilled = 0;
     Node *current = entities->getHead();
     while (current != nullptr) {
         if (current->data->canEat(this)) {
@@ -52,6 +53,18 @@ void Anthill::act() {
             current = current->next;
             entities->remove(temp->data);
         }
+    }
+}
+
+void Anthill::addPestsDefence(int pestsCanBeKilled) {
+    this->pestsCanBeKilled += pestsCanBeKilled;
+}
+
+void Anthill::attack(Entity *entity) {
+    if (pestsCanBeKilled > 0) {
+        pestsCanBeKilled--;
+    } else {
+        entity->eat(this);
     }
 }
 

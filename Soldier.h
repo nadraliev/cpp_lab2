@@ -9,7 +9,7 @@
 #include <vector>
 #include "Entity.h"
 
-class Soldier : public Entity {
+class Soldier : virtual public Entity {
 
 public:
     Soldier(double foodPerCycle, int pestKilledPerCycle);

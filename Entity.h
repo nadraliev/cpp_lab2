@@ -17,9 +17,9 @@ public:
 
     explicit Entity(double foodPerCycle);
 
-    void eat(Anthill *anthill);
+    virtual void eat(Anthill *anthill);
 
-    bool canEat(Anthill *anthill);
+    virtual bool canEat(Anthill *anthill);
 
     virtual void act(Anthill *anthill);
 

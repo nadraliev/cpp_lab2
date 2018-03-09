@@ -10,7 +10,7 @@
 
 class Anthill;
 
-class Policeant : public Entity {
+class Policeant : virtual public Entity {
 
 public:
     Policeant(double foodPerCycle, double foodGrowthRelative);

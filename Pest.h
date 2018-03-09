@@ -8,9 +8,11 @@
 
 #include "Entity.h"
 
-class Pest : public Entity {
+class Pest : virtual public Entity {
 public:
     explicit Pest(double foodPerCycle);
+
+    void act(Anthill *anthill);
 };
 
 

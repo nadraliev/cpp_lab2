@@ -9,9 +9,7 @@
 #include "Entity.h"
 #include "Larva.h"
 
-class Larva;
-
-class Female : public Entity {
+class Female : virtual public Entity {
 
 public:
     Female(double foodPerCycle, int larvasBornPerCycle, Anthill *anthill);

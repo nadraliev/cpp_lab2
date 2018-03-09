@@ -8,11 +8,8 @@
 
 #include <functional>
 #include "Entity.h"
-#include "Female.h"
 
-class Female;
-
-class Larva: public Entity {
+class Larva : virtual public Entity {
 
 public:
     Larva(double foodPerCycle, double foodRequiredToGrow, std::function<void(Larva *)> onLarvaCanGrow);

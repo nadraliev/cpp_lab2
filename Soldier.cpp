@@ -12,7 +12,7 @@ Soldier::Soldier(double foodPerCycle, int pestKilledPerCycle) : Entity(foodPerCy
 
 void Soldier::act(Anthill *anthill) {
     Entity::act(anthill);
-    killPests(anthill);
+    anthill->addPestsDefence(pestKilledPerCycle);
 }
 
 void Soldier::killPests(Anthill *anthill) {

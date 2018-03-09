@@ -7,7 +7,7 @@
 
 #include "Entity.h"
 
-class Worker: public Entity {
+class Worker : virtual public Entity {
 
 public:
     Worker(double foodPerCycle, double foodMinedPerCycle);

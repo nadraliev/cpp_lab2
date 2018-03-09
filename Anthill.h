@@ -10,7 +10,6 @@
 #include "List.h"
 
 class Entity;
-
 class List;
 
 class Anthill {
@@ -33,9 +32,14 @@ public:
 
     void getFood(double count);
 
+    void attack(Entity *entity);
+
+    void addPestsDefence(int pestsCanBeKilled);
+
 private:
     double foodHeap;
     List *entities;
+    int pestsCanBeKilled;
 
 };
 
