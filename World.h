@@ -18,7 +18,7 @@ public:
     void act();
 
 private:
-    int pestsBornPerCycle;
+    int pestsBornMaxPerCycle;
     List pests;
     Anthill *anthill;
 

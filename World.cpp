@@ -2,13 +2,15 @@
 // Created by andrew on 09.03.18.
 //
 
+#include <cstdlib>
+#include <cstdio>
 #include "World.h"
 #include "Pest.h"
 
-World::World(int pestsCount, Anthill *anthill) {
-    this->pestsBornPerCycle = pestsBornPerCycle;
+World::World(int pestsBornPerCycleMax, Anthill *anthill) {
+    this->pestsBornMaxPerCycle = pestsBornPerCycleMax;
     this->anthill = anthill;
-    addPests(pestsCount);
+    std::srand(1);
 }
 
 List *World::getPests() {
@@ -16,11 +18,14 @@ List *World::getPests() {
 }
 
 void World::addPests(int count) {
-    for (int i = 0; i < count; i++)
+    int pestsToBeBorn = rand() % (count + 1);
+    for (int i = 0; i < pestsToBeBorn; i++)
         pests.add(new Pest(1));
+    printf("%d pests were born\n", pestsToBeBorn);
 }
 
 void World::act() {
+    addPests(pestsBornMaxPerCycle);
     Node *current = pests.getHead();
     while (current != nullptr) {
         if (!current->data->isDead())

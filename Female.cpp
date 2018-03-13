@@ -19,7 +19,7 @@ void Female::act(Anthill *anthill) {
         onLarvaReadyToGrow(larva);
     };
     for (int i = 0; i < larvasBornPerCycle; i++) {
-        anthill->addEntity(new Larva(5, 10, func));
+        anthill->addEntity(new Larva(2, 4, func));
     }
 }
 
@@ -41,11 +41,14 @@ Entity *Female::giveBirthToNewEntity() {
     int workersCount = 0;
     Node *current = anthill->getEntites()->getHead();
     while (current != nullptr) {
-        if (dynamic_cast<Policeant *>(current->data))
+        if (dynamic_cast<Policeant *>(current->data)
+            && !current->data->isDead())
             policeantsCount++;
-        if (dynamic_cast<Soldier *>(current->data))
+        if (dynamic_cast<Soldier *>(current->data)
+            && !current->data->isDead())
             soldiersCount++;
-        if (dynamic_cast<Worker *>(current->data))
+        if (dynamic_cast<Worker *>(current->data)
+            && !current->data->isDead())
             workersCount++;
         current = current->next;
     }
