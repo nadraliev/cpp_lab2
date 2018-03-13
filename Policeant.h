@@ -7,10 +7,11 @@
 
 
 #include "Anthill.h"
+#include "Ant.h"
 
 class Anthill;
 
-class Policeant : virtual public Entity {
+class Policeant : virtual public Ant {
 
 public:
     Policeant(double foodPerCycle, double foodGrowthRelative);

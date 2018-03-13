@@ -5,7 +5,7 @@
 #include <cstdio>
 #include "Larva.h"
 
-Larva::Larva(double foodPerCycle, double foodRequiredToGrow, std::function<void(Larva *)> onLarvaCanGrow) : Entity(
+Larva::Larva(double foodPerCycle, double foodRequiredToGrow, std::function<void(Larva *)> onLarvaCanGrow) : Ant(
         foodPerCycle) {
     this->foodRequiredToGrow = foodRequiredToGrow;
     this->onLarvaCanGrow = onLarvaCanGrow;

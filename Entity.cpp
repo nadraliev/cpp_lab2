@@ -19,3 +19,11 @@ bool Entity::canEat(Anthill *anthill) {
 void Entity::act(Anthill *anthill) {
     eat(anthill);
 }
+
+void Entity::kill(Entity *killer) {
+    dead = true;
+}
+
+bool Entity::isDead() {
+    return dead;
+}

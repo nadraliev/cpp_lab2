@@ -8,8 +8,9 @@
 
 #include <vector>
 #include "Entity.h"
+#include "Ant.h"
 
-class Soldier : virtual public Entity {
+class Soldier : virtual public Ant {
 
 public:
     Soldier(double foodPerCycle, int pestKilledPerCycle);

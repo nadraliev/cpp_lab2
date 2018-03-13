@@ -8,7 +8,7 @@
 #include "Policeant.h"
 #include "Soldier.h"
 
-Female::Female(double foodPerCycle, int larvasBornPerCycle, Anthill *anthill) : Entity(foodPerCycle) {
+Female::Female(double foodPerCycle, int larvasBornPerCycle, Anthill *anthill) : Ant(foodPerCycle) {
     this->larvasBornPerCycle = larvasBornPerCycle;
     this->anthill = anthill;
 }

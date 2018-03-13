@@ -8,8 +8,9 @@
 
 #include "Entity.h"
 #include "Larva.h"
+#include "Ant.h"
 
-class Female : virtual public Entity {
+class Female : virtual public Ant {
 
 public:
     Female(double foodPerCycle, int larvasBornPerCycle, Anthill *anthill);

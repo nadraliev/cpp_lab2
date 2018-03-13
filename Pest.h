@@ -10,9 +10,12 @@
 
 class Pest : virtual public Entity {
 public:
-    explicit Pest(double foodPerCycle);
+    explicit Pest(int antsKilledPerCycle);
 
     void act(Anthill *anthill);
+
+private:
+    int antsKillesPerCycle;
 };
 
 

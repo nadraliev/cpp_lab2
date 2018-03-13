@@ -6,8 +6,9 @@
 #define CPP_LAB2_WORKER_H
 
 #include "Entity.h"
+#include "Ant.h"
 
-class Worker : virtual public Entity {
+class Worker : virtual public Ant {
 
 public:
     Worker(double foodPerCycle, double foodMinedPerCycle);

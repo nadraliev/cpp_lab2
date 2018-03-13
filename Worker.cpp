@@ -4,7 +4,7 @@
 
 #include "Worker.h"
 
-Worker::Worker(double foodPerCycle, double foodMinedPerCycle) : Entity(foodPerCycle) {
+Worker::Worker(double foodPerCycle, double foodMinedPerCycle) : Ant(foodPerCycle) {
     this->foodMinedPerCycle = foodMinedPerCycle;
 }
 

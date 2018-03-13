@@ -8,8 +8,9 @@
 
 #include <functional>
 #include "Entity.h"
+#include "Ant.h"
 
-class Larva : virtual public Entity {
+class Larva : virtual public Ant {
 
 public:
     Larva(double foodPerCycle, double foodRequiredToGrow, std::function<void(Larva *)> onLarvaCanGrow);

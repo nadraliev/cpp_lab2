@@ -22,6 +22,8 @@ public:
 
     List *getEntites();
 
+    List *getKillers();
+
     void act();
 
     double foodCount();
@@ -32,14 +34,10 @@ public:
 
     void getFood(double count);
 
-    void attack(Entity *entity);
-
-    void addPestsDefence(int pestsCanBeKilled);
-
 private:
     double foodHeap;
     List *entities;
-    int pestsCanBeKilled;
+    List *killers;
 
 };
 

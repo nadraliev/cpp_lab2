@@ -23,7 +23,8 @@ void World::addPests(int count) {
 void World::act() {
     Node *current = pests.getHead();
     while (current != nullptr) {
-        current->data->act(anthill);
+        if (!current->data->isDead())
+            current->data->act(anthill);
         current = current->next;
     }
 }

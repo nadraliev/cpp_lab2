@@ -23,8 +23,13 @@ public:
 
     virtual void act(Anthill *anthill);
 
+    virtual void kill(Entity *killer);
+
+    virtual bool isDead();
+
 protected:
     double foodPerCycle = 0;
+    bool dead = false;
 };
 
 

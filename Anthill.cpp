@@ -7,6 +7,7 @@
 Anthill::Anthill(double foodHeap) : foodHeap(foodHeap) {
     this->foodHeap = foodHeap;
     entities = new List();
+    killers = new List();
 }
 
 Anthill::~Anthill() {
@@ -23,6 +24,10 @@ void Anthill::addEntity(Entity *entity) {
 
 List *Anthill::getEntites() {
     return entities;
+}
+
+List *Anthill::getKillers() {
+    return killers;
 }
 
 double Anthill::foodCount() {
@@ -42,10 +47,9 @@ void Anthill::getFood(double count) {
 }
 
 void Anthill::act() {
-    pestsCanBeKilled = 0;
     Node *current = entities->getHead();
     while (current != nullptr) {
-        if (current->data->canEat(this)) {
+        if (current->data->canEat(this) && !current->data->isDead()) {
             current->data->act(this);
             current = current->next;
         } else {
@@ -53,18 +57,6 @@ void Anthill::act() {
             current = current->next;
             entities->remove(temp->data);
         }
-    }
-}
-
-void Anthill::addPestsDefence(int pestsCanBeKilled) {
-    this->pestsCanBeKilled += pestsCanBeKilled;
-}
-
-void Anthill::attack(Entity *entity) {
-    if (pestsCanBeKilled > 0) {
-        pestsCanBeKilled--;
-    } else {
-        entity->eat(this);
     }
 }
 

@@ -4,29 +4,25 @@
 
 #include <cstdio>
 #include "Soldier.h"
-#include "Pest.h"
 
-Soldier::Soldier(double foodPerCycle, int pestKilledPerCycle) : Entity(foodPerCycle) {
+Soldier::Soldier(double foodPerCycle, int pestKilledPerCycle) : Ant(foodPerCycle) {
     this->pestKilledPerCycle = pestKilledPerCycle;
 }
 
 void Soldier::act(Anthill *anthill) {
     Entity::act(anthill);
-    anthill->addPestsDefence(pestKilledPerCycle);
+    killPests(anthill);
 }
 
 void Soldier::killPests(Anthill *anthill) {
     int pestsKilled = 0;
-    Node *current = anthill->getEntites()->getHead();
+    Node *current = anthill->getKillers()->getHead();
     while (current != nullptr) {
-        if (dynamic_cast<Pest *>(current->data)) {
-            Node *temp = current;
-            current = current->next;
-            anthill->getEntites()->remove(temp->data);
+        if (!current->data->isDead() && pestsKilled < pestKilledPerCycle) {
+            current->data->kill(this);
             pestsKilled++;
-        } else {
-            current = current->next;
         }
+        current = current->next;
     }
     printf("Soldier killed %d pest(s)\n", pestsKilled);
 }

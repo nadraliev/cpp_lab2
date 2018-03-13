@@ -4,7 +4,7 @@
 
 #include "Policeant.h"
 
-Policeant::Policeant(double foodPerCycle, double foodGrowthRelative) : Entity(foodPerCycle) {
+Policeant::Policeant(double foodPerCycle, double foodGrowthRelative) : Ant(foodPerCycle) {
     this->foodGrowthRelative = foodGrowthRelative;
 }
 
